@@ -4,11 +4,43 @@
       <th>Nombre</th>
       <th>Descripción</th>
       <th>Numero de canciones</th>
+      <th>Acciones</th>
     </tr>
     <tr *ngFor="let item of playLists">
-      <td>{{item.nombre}}</td>
-      <td>{{item.description}}</td>
-      <td>{{item.songs.length}}</td>
+      <td>{{ item.nombre }}</td>
+      <td>{{ item.description }}</td>
+      <td>{{ item.songs.length }}</td>
+      <td>
+        <div>
+          <div>
+            <button (click)="showPlayList(item)" id="myBtn" #showButton>
+              Ver mas
+            </button>
+          </div>
+          <div (click)="removePlayList(item.nombre)">
+            <button>Remove</button>
+          </div>
+        </div>
+      </td>
     </tr>
   </table>
 </section>
+
+<!-- The Modal -->
+<div id="myModal" class="modal" #modalRef>
+  <!-- Modal content -->
+  <div class="modal-content" *ngIf="selectedPlayList">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <p><b>Nombre:</b> {{ selectedPlayList.nombre }}</p>
+    <p><b>Descripción:</b> {{ selectedPlayList.nombre }}</p>
+    <hr />
+
+    <p><b>Canciones:</b></p>
+    <div class="songs-container" *ngFor="let item of selectedPlayList.songs">
+      <p><b>Nombre:</b> {{ item.titulo }}</p>
+      <p><b>Artista:</b> {{ item.artista }}</p>
+      <p><b>Album:</b> {{ item.album }}</p>
+      <p><b>Año:</b> {{ item.anno }}</p>
+    </div>
+  </div>
+</div>

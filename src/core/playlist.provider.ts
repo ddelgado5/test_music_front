@@ -16,8 +16,4 @@ export class PlayListProvider {
     this.playList.next(playList)
   }
 
-  // removePlayList(playList: PlayList) {
-  //   this.playList.
-  // }
-
 }
