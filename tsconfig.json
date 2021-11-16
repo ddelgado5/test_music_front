@@ -17,6 +17,9 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2017",
+    "paths": {
+      "@environments/*": ["src/environments/*"],
+    },
     "module": "es2020",
     "lib": [
       "es2020",
