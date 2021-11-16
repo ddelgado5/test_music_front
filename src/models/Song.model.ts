@@ -7,6 +7,6 @@ export interface Song {
 
 export interface PlayList {
   nombre: string,
-  description: string
+  description: string,
   songs: Song[],
 }

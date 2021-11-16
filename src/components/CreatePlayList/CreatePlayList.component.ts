@@ -44,7 +44,14 @@ export class CreatePlayListComponent {
   }
 
   saveSong(song: Song){
-    this.playList.songs.push(song)
+    const songAux: Song = {
+      album: this.formSong.value.album,
+      titulo: this.formSong.value.title,
+      artista: this.formSong.value.artist,
+      anno: this.formSong.value.year
+    }
+    console.log('songAux: ', songAux);
+    this.playList.songs.push(songAux)
     this.formSong.reset()
   }
 
@@ -52,9 +59,8 @@ export class CreatePlayListComponent {
     if(!this.playList.songs.length){
       return
     }
-    
+
     this.form.reset
-    console.log('Save', this.form.value);
   }
 
 }
