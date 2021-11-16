@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PlayListProvider } from 'src/core/playlist.provider';
+import { PlayList } from 'src/models/Song.model';
 
 @Component({
   selector: 'play-list',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./PlayList.component.scss']
 })
 export class PlayListComponent {
-  title = 'prueba';
+  playLists: PlayList[] = [];
+
+  constructor(
+    private playListProvider: PlayListProvider
+  ) { }
+
+    ngOnInit() {
+      this.playListProvider.playList$.subscribe(playList => {
+        this.playLists.push(playList)
+      })
+    }
+
 }

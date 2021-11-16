@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PlayListProvider } from 'src/core/playlist.provider';
 import { PlayList, Song } from 'src/models/Song.model';
 
 @Component({
@@ -20,6 +21,7 @@ export class CreatePlayListComponent {
 
   constructor(
     private formBuilder: FormBuilder,
+    private playListProvider: PlayListProvider
   ) {
     this.buildForm()
   }
@@ -50,7 +52,6 @@ export class CreatePlayListComponent {
       artista: this.formSong.value.artist,
       anno: this.formSong.value.year
     }
-    console.log('songAux: ', songAux);
     this.playList.songs.push(songAux)
     this.formSong.reset()
   }
@@ -60,7 +61,25 @@ export class CreatePlayListComponent {
       return
     }
 
+    this.playList = {
+      ...this.playList,
+      ...this.form.value,
+      nombre: this.form.value.name 
+    }
+    this.playListProvider.addPlayList(this.playList)    
+    this.resetData()
+    
+  }
+
+  resetData() {
+    // Reset forms
     this.form.reset
+    this.formSong.reset
+    this.playList = {
+      nombre: "",
+      description: "",
+      songs: [],
+    }
   }
 
 }
