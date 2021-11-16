@@ -13,13 +13,17 @@ import { CreatePlayListComponent } from 'src/components/CreatePlayList/CreatePla
 import { HeaderComponent } from 'src/components/Header/Header.component';
 // Interceptors
 import { TokenInterceptor } from 'src/core/token.interceptor';
+import { LoginComponent } from 'src/components/Login/Login.component';
+import { LayoutComponent } from 'src/components/Layout/Layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayListComponent,
     CreatePlayListComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

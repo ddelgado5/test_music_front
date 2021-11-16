@@ -1,0 +1,38 @@
+<form [formGroup]="form" class="form" (ngSubmit)="singIn(form.value)">
+  <!-- Name -->
+  <div class="field-container">
+    <label>usuario</label>
+    <input
+      type="text"
+      formControlName="name"
+      name="name"
+      autocomplete="on"
+    />
+    <p
+      *ngIf="
+        form.controls['name'].invalid &&
+        form.controls['name'].touched &&
+        form.controls['name'].dirty
+      "
+    >
+      El usuario es <strong>requerido</strong>
+    </p>
+  </div>
+  <!-- Description -->
+  <div class="field-container">
+    <label>Contraseña</label>
+    <input type="text" formControlName="password" name="password" />
+    <p
+      *ngIf="
+        form.controls['password'].invalid &&
+        form.controls['password'].touched &&
+        form.controls['password'].dirty
+      "
+    >
+      La contraseña es <strong>requerida</strong>
+    </p>
+  </div>
+  <div>
+    <button [disabled]="!form.valid" type="submit">Ingresar</button>
+  </div>
+</form>
