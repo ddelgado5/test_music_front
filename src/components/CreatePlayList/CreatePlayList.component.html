@@ -1,0 +1,94 @@
+<section class="form-container">
+  <div>
+    <form [formGroup]="form" class="form">
+      <!-- Name -->
+      <div class="field-container">
+        <label>Nombre</label>
+        <input type="text" formControlName="name" name="name" autocomplete="on" />
+        <p *ngIf="
+            form.controls['name'].invalid
+            && form.controls['name'].touched
+            && form.controls['name'].dirty
+          ">
+          El nombre es <strong>requerido</strong>
+        </p>
+      </div>
+      <!-- Description -->
+      <div class="field-container">
+        <label>Descripción</label>
+        <input type="text" formControlName="description" name="description" />
+        <p *ngIf="
+            form.controls['description'].invalid
+            && form.controls['description'].touched
+            && form.controls['description'].dirty
+          ">
+          La descripción es <strong>requerida</strong>
+        </p>
+      </div>
+    </form>
+
+    <!-- Song -->
+    <form [formGroup]="formSong" (ngSubmit)="saveSong(formSong.value)" class="form">
+      <h4>Agregar Canción</h4>
+      <div class="form-song">
+        <!-- Title -->
+        <div class="field-container">
+          <label>Titulo</label>
+          <input type="text" formControlName="title" name="title" autocomplete="on" />
+          <p *ngIf="
+            formSong.controls['title'].invalid
+            && formSong.controls['title'].touched
+            && formSong.controls['title'].dirty
+          ">
+            El titulo es <strong>requerido</strong> 
+          </p>
+        </div>
+        <!-- Artist -->
+        <div class="field-container">
+          <label>Artista</label>
+          <input type="text" name="artist" formControlName="artist"/>
+          <p *ngIf="
+            formSong.controls['artist'].invalid
+            && formSong.controls['artist'].touched
+            && formSong.controls['artist'].dirty
+          ">
+            El Artista es <strong>requerido</strong>
+          </p>
+        </div>
+      </div>
+      <div class="form-song">
+        <!-- Album -->
+        <div class="field-container">
+          <label>Album</label>
+          <input type="text" name="album" formControlName="album" />
+          <p *ngIf="
+            formSong.controls['album'].invalid
+            && formSong.controls['album'].touched
+            && formSong.controls['album'].dirty
+          ">
+            El Album es <strong>requerido</strong>
+          </p>
+        </div>
+        <!-- Year -->
+        <div class="field-container">
+          <label>Año</label>
+          <input type="text" name="year" formControlName="year" />
+          <p *ngIf="
+            formSong.controls['year'].invalid
+            && formSong.controls['year'].touched
+            && formSong.controls['year'].dirty
+          ">
+            El Año es <strong>requerido</strong>
+          </p>
+        </div>
+      </div>
+      <div class="submit-song--button">
+        <button [disabled]="!formSong.valid" type="submit">Agregar Canción</button>
+      </div>
+    </form>
+
+    <div class="submit-playlist--button">
+      <button [disabled]="!form.valid" (click)="savePlayList()">Agregar Lista de reproducción</button>
+    </div>
+  </div>
+</section>
