@@ -124,7 +124,7 @@
       </button>
     </div>
 
-    <h4>Estas son las canciones que vas a agregar a: <b>{{form.value?.name}}</b></h4>
+    <h4>Estas son las canciones que vas a agregar a {{form.value?.name}}:</h4>
       <div class="listSong" *ngFor="let item of playList.songs">
         <p><b>Nombre: </b> {{ item.titulo }}</p>
         <p><b>Artista: </b> {{ item.artista }}</p>
