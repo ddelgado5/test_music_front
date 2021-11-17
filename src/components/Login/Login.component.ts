@@ -29,20 +29,22 @@ export class LoginComponent {
 
   buildForm(): void {
     this.form = this.formBuilder.group({
-      name: ['', Validators.compose([Validators.required, Validators.maxLength(50)])],
+      email: ['', Validators.compose([Validators.required])],
       password: ['', Validators.required]
     });
   }
 
   singIn(user: IUser) {
+    console.log('user: ', user);
+
     this.apiService.login(user)
       .subscribe(res => {
         console.log('res: Aqui debe estar el token', res);
+        // quitarla de qui y ponerla en el susbcribe 
       },
       err => {
         console.log("Si pasa algun Error", err)
       })
-      // quitarla de qui y ponerla en el susbcribe 
       this.router.navigate(['lista'])
   }
 

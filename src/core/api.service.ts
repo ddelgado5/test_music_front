@@ -28,7 +28,7 @@ export class ApiService {
    * @returns listas de reproducción
    */
   getPlayLists() {
-    return this.http.get<PlayList[]>(`${this.getUrl()}/users`)
+    return this.http.get<PlayList[]>(`${this.getUrl()}/lists`)
   }
 
   /**
@@ -36,21 +36,21 @@ export class ApiService {
    * @returns lista de reproducción
    */
   getPlayListByName(name: string) {
-    return this.http.get<PlayList>(`${this.getUrl()}/users/${name}`)
+    return this.http.get<PlayList>(`${this.getUrl()}/lists/${name}`)
   }
 
   /**
    * save a playList
    */
   savePlayList(playList: PlayList) {
-    return this.http.post(`${this.getUrl()}/users/`, playList)
+    return this.http.post(`${this.getUrl()}/lists/`, playList)
   }
 
   /**
    * Delete a playList
    */
   deletePlayList(name: string) {
-    return this.http.delete(`${this.getUrl()}/users/${name}`)
+    return this.http.delete(`${this.getUrl()}/lists/${name}`)
   }
 
   /**
@@ -62,6 +62,7 @@ export class ApiService {
         tap(res => {
           console.log('res: ', res);
           const { token } = res;
+          console.log('token: ', token);
           this.sessionStorageService.set('token', token as string)
         })
       )

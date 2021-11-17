@@ -1,13 +1,14 @@
 export interface Song {
   titulo: string,
-  artista: string
+  artista: string,
   album: string,
-  anno: string
+  anno: string,
+  listaDeReproducciones: number
 }
 
 export interface PlayList {
   id?: number;
   nombre: string,
-  description: string,
-  songs: Song[],
+  descripcion: string,
+  cancion: Song[],
 }

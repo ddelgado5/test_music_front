@@ -4,18 +4,18 @@
     <label>usuario</label>
     <input
       type="text"
-      formControlName="name"
-      name="name"
+      formControlName="email"
+      name="email"
       autocomplete="on"
     />
     <p
       *ngIf="
-        form.controls['name'].invalid &&
-        form.controls['name'].touched &&
-        form.controls['name'].dirty
+        form.controls['email'].invalid &&
+        form.controls['email'].touched &&
+        form.controls['email'].dirty
       "
     >
-      El usuario es <strong>requerido</strong>
+      El email es <strong>requerido</strong>
     </p>
   </div>
   <!-- Description -->

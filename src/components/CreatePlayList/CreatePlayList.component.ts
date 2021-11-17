@@ -15,8 +15,8 @@ export class CreatePlayListComponent {
 
   playList: PlayList = {
     nombre:"",
-    description:"",
-    songs: []
+    descripcion:"",
+    cancion: []
   };
 
   constructor(
@@ -50,14 +50,15 @@ export class CreatePlayListComponent {
       album: this.formSong.value.album,
       titulo: this.formSong.value.title,
       artista: this.formSong.value.artist,
-      anno: this.formSong.value.year
+      anno: this.formSong.value.year,
+      listaDeReproducciones: 1
     }
-    this.playList.songs.push(songAux)
+    this.playList.cancion.push(songAux)
     this.formSong.reset()
   }
 
   savePlayList(){
-    if(!this.playList.songs.length){
+    if(!this.playList.cancion.length){
       return
     }
 
@@ -77,8 +78,8 @@ export class CreatePlayListComponent {
     this.formSong.reset
     this.playList = {
       nombre: "",
-      description: "",
-      songs: [],
+      descripcion: "",
+      cancion: [],
     }
   }
 

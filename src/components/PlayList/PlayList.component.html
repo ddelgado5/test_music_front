@@ -8,8 +8,8 @@
     </tr>
     <tr *ngFor="let item of playLists">
       <td>{{ item.nombre }}</td>
-      <td>{{ item.description }}</td>
-      <td>{{ item.songs.length }}</td>
+      <td>{{ item.descripcion }}</td>
+      <td>{{ item.cancion.length }}</td>
       <td>
         <div>
           <div>
@@ -36,7 +36,7 @@
     <hr />
 
     <p><b>Canciones:</b></p>
-    <div class="songs-container" *ngFor="let item of selectedPlayList.songs">
+    <div class="songs-container" *ngFor="let item of selectedPlayList.cancion">
       <p><b>Nombre:</b> {{ item.titulo }}</p>
       <p><b>Artista:</b> {{ item.artista }}</p>
       <p><b>Album:</b> {{ item.album }}</p>
